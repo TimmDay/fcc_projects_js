@@ -98,32 +98,79 @@ document.getElementById('pos2').addEventListener('click', function(){
 
 document.getElementById('pos3').addEventListener('click', function(){
 
-    document.getElementById('pos3').textContent='clicked'; //todo test
+    const spaceOccupant = document.getElementById('pos3').textContent;
+    if (spaceOccupant !== 'position 3'){ //todo update content to empty string after styles
+        console.log('space occupied');
+        return; //do nothing
+    }
+    const mark = (isTurnX) ? 'X' : 'O';
+    document.getElementById('pos3').textContent=mark; //todo test
     checkWinConditions();
+    toggleTurn();
 });
 document.getElementById('pos4').addEventListener('click', function(){
 
-    document.getElementById('pos4').textContent='clicked'; //todo test
+    const spaceOccupant = document.getElementById('pos4').textContent;
+    if (spaceOccupant !== 'position 4'){ //todo update content to empty string after styles
+        console.log('space occupied');
+        return; //do nothing
+    }
+    const mark = (isTurnX) ? 'X' : 'O';
+    document.getElementById('pos4').textContent=mark; //todo test
     checkWinConditions();
+    toggleTurn();
 });
+
+
 document.getElementById('pos5').addEventListener('click', function(){
 
-    document.getElementById('pos5').textContent='clicked'; //todo test
+    const spaceOccupant = document.getElementById('pos5').textContent;
+    if (spaceOccupant !== 'position 5'){ //todo update content to empty string after styles
+        console.log('space occupied');
+        return; //do nothing
+    }
+    const mark = (isTurnX) ? 'X' : 'O';
+    document.getElementById('pos5').textContent=mark; //todo test
     checkWinConditions();
+    toggleTurn();
 });
+
+
 document.getElementById('pos6').addEventListener('click', function(){
 
-    document.getElementById('pos6').textContent='clicked'; //todo test
+    const spaceOccupant = document.getElementById('pos6').textContent;
+    if (spaceOccupant !== 'position 6'){ //todo update content to empty string after styles
+        console.log('space occupied');
+        return; //do nothing
+    }
+    const mark = (isTurnX) ? 'X' : 'O';
+    document.getElementById('pos6').textContent=mark; //todo test
     checkWinConditions();
+    toggleTurn();
 });
+
 document.getElementById('pos7').addEventListener('click', function(){
 
-    document.getElementById('pos7').textContent='clicked'; //todo test
+    const spaceOccupant = document.getElementById('pos7').textContent;
+    if (spaceOccupant !== 'position 7'){ //todo update content to empty string after styles
+        console.log('space occupied');
+        return; //do nothing
+    }
+    const mark = (isTurnX) ? 'X' : 'O';
+    document.getElementById('pos7').textContent=mark; //todo test
     checkWinConditions();
+    toggleTurn();
 });
+
 document.getElementById('pos8').addEventListener('click', function(){
 
-    document.getElementById('pos8').textContent='clicked'; //todo test
+    const spaceOccupant = document.getElementById('pos8').textContent;
+    if (spaceOccupant !== 'position 8'){ //todo update content to empty string after styles
+        console.log('space occupied');
+        return; //do nothing
+    }
+    const mark = (isTurnX) ? 'X' : 'O';
+    document.getElementById('pos8').textContent=mark; //todo test
     checkWinConditions();
+    toggleTurn();
 });
-
