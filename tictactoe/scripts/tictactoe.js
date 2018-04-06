@@ -11,6 +11,11 @@ document.getElementById('app').textContent = 'test';
 let isTurnX = true; //x always goes first
 let isOpponentComputer = false;
 
+//winX, winO, draw, incomplete
+const getResult = (gameState) => {
+
+};
+
 const checkWinConditions = () => {
     // check if 3 in a row are the same
     // if so, end game and display play again button/modal
@@ -26,21 +31,42 @@ const checkWinConditions = () => {
     const i = document.getElementById('pos8').textContent;
 
     if (a === b && b === c){
-        console.log('game over abc. Winner is: ' + document.getElementById(c));
+        console.log(`win${c}`);
+        return (`win ${document.getElementById(c)}`);
+
     } else if (d === e && e === f) {
-        console.log('game over def. Winner is: ' + document.getElementById(f));
+        console.log(`win${f}`);
+        return (`win ${document.getElementById(f)}`);
+
     } else if (g === h && h === i) {
-        console.log('game over ghi. Winner is: ' + document.getElementById(i));
+        console.log(`win${i}`);
+        return (`win ${document.getElementById(i)}`);
+
     } else if (a === d && d === g) {
-        console.log('game over adg. Winner is: ' + document.getElementById(g));
+        console.log(`win${g}`);
+        return (`win ${document.getElementById(g)}`);
+
     } else if (b === e && e === h) {
-        console.log('game over beh. Winner is: ' + document.getElementById(h));
+        console.log(`win${h}`);
+        return (`win ${document.getElementById(h)}`);
+
     } else if (c === f && f === i) {
-        console.log('game over cfi. Winner is: ' + document.getElementById(i));
+        console.log(`win${i}`);
+        return (`win ${document.getElementById(i)}`);
+
     } else if (a === e && e === i) {
-        console.log('game over aei. Winner is: ' + document.getElementById(i));
+        console.log(`win${i}`);
+        return (`win ${document.getElementById(i)}`);
+
     } else if (c === e && e === g) {
-        console.log('game over ceg. Winner is: ' + document.getElementById(g));
+        console.log(`win${g}`);
+        return (`win ${document.getElementById(g)}`);
+
+    } else if ('' === a ){ //todo
+        console.log(`incomplete`);
+        return 'incomplete';
+    } else {
+        return 'draw';
     }
 };
 
@@ -81,8 +107,7 @@ document.getElementById('pos0').addEventListener('click', function(){
         console.log('space occupied');
         return; //do nothing
     }
-    const mark = (isTurnX) ? 'X' : 'O';
-    document.getElementById('pos0').textContent=mark; //todo test
+    document.getElementById('pos0').textContent = (isTurnX) ? 'X' : 'O';
     checkWinConditions();
     toggleTurn();
 });
@@ -95,8 +120,7 @@ document.getElementById('pos1').addEventListener('click', function(){
         console.log('space occupied');
         return; //do nothing
     }
-    const mark = (isTurnX) ? 'X' : 'O';
-    document.getElementById('pos1').textContent=mark; //todo test
+    document.getElementById('pos1').textContent = (isTurnX) ? 'X' : 'O';
     checkWinConditions();
     toggleTurn();
 });
