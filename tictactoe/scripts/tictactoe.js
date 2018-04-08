@@ -1,215 +1,182 @@
-/**
- * Created by DAY7RT on 05.04.2018.
- */
 
-document.getElementById('app').textContent = 'test';
+/** MODEL cares about the data **/
+const tictactoe = {
+    gameBoard: ['','','','','','','','',''],
+    isTurnX: true,
+    winCounter: [0,0],
 
-//  0a   1b   2c
-//  3d   4e   5f
-//  6g   7h   8i
+    toggleTurn: function(){
+        this.isTurnX = !this.isTurnX;
+    },
 
-let isTurnX = true; //x always goes first
-let isOpponentComputer = false;
+    updateBoard: function(pos){
+        if (this.gameBoard[pos] !== '') return; //do nothing if space occupied
+        this.gameBoard[pos] = this.isTurnX ? 'X' : 'O';
+        this.toggleTurn(); // todo here?
+    },
 
-//winX, winO, draw, incomplete
-const getResult = (gameState) => {
+    checkGameState: function(){ // winX, winO, incomplete, draw
 
-};
+        const a = this.gameBoard[0];
+        const b = this.gameBoard[1];
+        const c = this.gameBoard[2];
+        const d = this.gameBoard[3];
+        const e = this.gameBoard[4];
+        const f = this.gameBoard[5];
+        const g = this.gameBoard[6];
+        const h = this.gameBoard[7];
+        const i = this.gameBoard[8];
 
-const checkWinConditions = () => {
-    // check if 3 in a row are the same
-    // if so, end game and display play again button/modal
-
-    const a = document.getElementById('pos0').textContent;
-    const b = document.getElementById('pos1').textContent;
-    const c = document.getElementById('pos2').textContent;
-    const d = document.getElementById('pos3').textContent;
-    const e = document.getElementById('pos4').textContent;
-    const f = document.getElementById('pos5').textContent;
-    const g = document.getElementById('pos6').textContent;
-    const h = document.getElementById('pos7').textContent;
-    const i = document.getElementById('pos8').textContent;
-
-    if (a === b && b === c){
-        console.log(`win${c}`);
-        return (`win ${document.getElementById(c)}`);
-
-    } else if (d === e && e === f) {
-        console.log(`win${f}`);
-        return (`win ${document.getElementById(f)}`);
-
-    } else if (g === h && h === i) {
-        console.log(`win${i}`);
-        return (`win ${document.getElementById(i)}`);
-
-    } else if (a === d && d === g) {
-        console.log(`win${g}`);
-        return (`win ${document.getElementById(g)}`);
-
-    } else if (b === e && e === h) {
-        console.log(`win${h}`);
-        return (`win ${document.getElementById(h)}`);
-
-    } else if (c === f && f === i) {
-        console.log(`win${i}`);
-        return (`win ${document.getElementById(i)}`);
-
-    } else if (a === e && e === i) {
-        console.log(`win${i}`);
-        return (`win ${document.getElementById(i)}`);
-
-    } else if (c === e && e === g) {
-        console.log(`win${g}`);
-        return (`win ${document.getElementById(g)}`);
-
-    } else if ('' === a ){ //todo
-        console.log(`incomplete`);
-        return 'incomplete';
-    } else {
-        return 'draw';
+        //isTurnX has toggled before this test
+        if (a === b && b === c && c !== '' ) {
+            return `win${this.isTurnX ? 'O' : 'X'}`;
+        } else if (d === e && e === f && f !== '' ) {
+            return `win${this.isTurnX ? 'O' : 'X'}`;
+        } else if (g === h && h === i && i !== '' ) {
+            return `win${this.isTurnX ? 'O' : 'X'}`;
+        } else if (a === d && d === g && g !== '' ) {
+            return `win${this.isTurnX ? 'O' : 'X'}`;
+        } else if (b === e && e === h && h !== '' ) {
+            return `win${this.isTurnX ? 'O' : 'X'}`;
+        } else if (c === f && f === i && i !== '' ) {
+            return `win${this.isTurnX ? 'O' : 'X'}`;
+        } else if (a === e && e === i && i !== '' ) {
+            return `win${this.isTurnX ? 'O' : 'X'}`;
+        } else if (c === e && e === g && g !== '' ) {
+            return `win${this.isTurnX ? 'O' : 'X'}`;
+        } else if (this.gameBoard.indexOf('') > 0) {
+            return ('incomplete');
+        } else {
+            return 'draw';
+        }
+    },
+    
+    clearBoard : () => {
+        this.gameBoard = ['','','','','','','','',''];
     }
-};
-
-const toggleTurn = () => isTurnX = !isTurnX;
-
-const toggleOpponent = () => {
-    // toggle up top. play against: human/computer
-};
-
-const chooseTeam = () => {
-    // toggle button up top for player to choose who goes first
-    // depending on choice, toggle isTurnX
-    // after clicked, button is disabled
-    // after clicked, display message: player 1 is X/O. Computer/player 2 is X/O
-};
-
-const resetNewGame = () => {
-    // re-enable choose team button
-    // empty all spaces
-};
-
-const computerMakeMove = () => {
 
 };
 
 
-// PLAYER 1 Select Move
+/** CONTROLLER (event listeners - link between model and view) **/
+const controller = {
 
-document.getElementById('pos0').addEventListener('click', function(){
-    // check if space is empty. if not do nothing
-    // check whose turn it is
-    // update space with appropriate mark
-    // check win conditions
-    // switch the turn
+    setUpBoardListeners(){
+        const spaces = document.getElementsByClassName('game-space');
 
-    const spaceOccupant = document.getElementById('pos0').textContent;
-    if (spaceOccupant !== 'position 0'){ //todo update content to empty string after styles
-        console.log('space occupied');
-        return; //do nothing
+        [].forEach.call(spaces, (space, index) => {
+
+            space.addEventListener('click', () => {
+
+                if (tictactoe.gameBoard[index] === ''){ //only do stuff if space empty
+                    tictactoe.updateBoard(index);
+                    console.log(tictactoe.gameBoard);
+                    // console.log(tictactoe.gameBoard); //todo
+
+                    // TODO : BUG the alert from displayResult appears before the board renders. promises?
+                    view.displayBoard();
+                    view.displayResult();
+                }
+            });
+        });
     }
-    document.getElementById('pos0').textContent = (isTurnX) ? 'X' : 'O';
-    checkWinConditions();
-    toggleTurn();
-});
+};
+
+/** VIEW  cares about the DOM **/
+const view = {
+    displayBoard() {
+
+        const moves = document.getElementsByClassName('game-space'); //html collection, not array
+
+        tictactoe.gameBoard.forEach((item, index) => {
+            // console.log(moves[index]); //todo
+            moves[index].textContent = item;
+        })
+    },
+
+    displayResult() {
+        switch (tictactoe.checkGameState()) {
+            case 'incomplete' :
+                break; //do nothing
+
+            case 'draw' :
+                alert('game is a draw');
+                break;
+
+            case 'winX' :
+                alert('X wins!');
+                break;
+
+            case 'winO' :
+                alert('O wins!');
+                break;
+        }
+    },
+
+
+    newGame() {
+
+    }, //user clicks new game button
+    chooseTeam() {
+
+    } //user clicks choose team toggle before new game starts
+};
+
+/** set up listeners **/
+controller.setUpBoardListeners();
+
+// DEMO TEST
+
+// TEST 1
+// 0,1,2,3,4,5,7,6,8
+// X,O,X,O,X,O,O,X,X
+// winX
+// const test1 = () => {
+//     tictactoe.updateBoard(0);
+//     console.log(tictactoe.gameBoard);
+//     console.log(tictactoe.checkGameState());
+//
+//     tictactoe.updateBoard(1);
+//     console.log(tictactoe.gameBoard);
+//     console.log(tictactoe.checkGameState());
+//
+//     tictactoe.updateBoard(2);
+//     console.log(tictactoe.gameBoard);
+//     console.log(tictactoe.checkGameState());
+//
+//     tictactoe.updateBoard(3);
+//     console.log(tictactoe.gameBoard);
+//     console.log(tictactoe.checkGameState());
+//
+//     tictactoe.updateBoard(4);
+//     console.log(tictactoe.gameBoard);
+//     console.log(tictactoe.checkGameState());
+//
+//     tictactoe.updateBoard(5);
+//     console.log(tictactoe.gameBoard);
+//     console.log(tictactoe.checkGameState());
+//
+//     tictactoe.updateBoard(7);
+//     console.log(tictactoe.gameBoard);
+//     console.log(tictactoe.checkGameState());
+//
+//     tictactoe.updateBoard(6);
+//     console.log(tictactoe.gameBoard);
+//     console.log(tictactoe.checkGameState());
+//
+//     tictactoe.updateBoard(8);
+//     console.log(tictactoe.gameBoard);
+//     console.log(tictactoe.checkGameState());
+//
+//     view.displayBoard();
+// };
+// test1();
+
+const test2 = () => {
+
+};
 
 
 
-document.getElementById('pos1').addEventListener('click', function(){
-    const spaceOccupant = document.getElementById('pos1').textContent;
-    if (spaceOccupant !== 'position 1'){ //todo update content to empty string after styles
-        console.log('space occupied');
-        return; //do nothing
-    }
-    document.getElementById('pos1').textContent = (isTurnX) ? 'X' : 'O';
-    checkWinConditions();
-    toggleTurn();
-});
 
 
-
-document.getElementById('pos2').addEventListener('click', function(){
-    const spaceOccupant = document.getElementById('pos2').textContent;
-    if (spaceOccupant !== 'position 2'){ //todo update content to empty string after styles
-        console.log('space occupied');
-        return; //do nothing
-    }
-    const mark = (isTurnX) ? 'X' : 'O';
-    document.getElementById('pos2').textContent=mark; //todo test
-    checkWinConditions();
-    toggleTurn();
-});
-
-
-
-document.getElementById('pos3').addEventListener('click', function(){
-    const spaceOccupant = document.getElementById('pos3').textContent;
-    if (spaceOccupant !== 'position 3'){ //todo update content to empty string after styles
-        console.log('space occupied');
-        return; //do nothing
-    }
-    const mark = (isTurnX) ? 'X' : 'O';
-    document.getElementById('pos3').textContent=mark; //todo test
-    checkWinConditions();
-    toggleTurn();
-});
-
-document.getElementById('pos4').addEventListener('click', function(){
-    const spaceOccupant = document.getElementById('pos4').textContent;
-    if (spaceOccupant !== 'position 4'){ //todo update content to empty string after styles
-        console.log('space occupied');
-        return; //do nothing
-    }
-    const mark = (isTurnX) ? 'X' : 'O';
-    document.getElementById('pos4').textContent=mark; //todo test
-    checkWinConditions();
-    toggleTurn();
-});
-
-document.getElementById('pos5').addEventListener('click', function(){
-    const spaceOccupant = document.getElementById('pos5').textContent;
-    if (spaceOccupant !== 'position 5'){ //todo update content to empty string after styles
-        console.log('space occupied');
-        return; //do nothing
-    }
-    const mark = (isTurnX) ? 'X' : 'O';
-    document.getElementById('pos5').textContent=mark; //todo test
-    checkWinConditions();
-    toggleTurn();
-});
-
-
-document.getElementById('pos6').addEventListener('click', function(){
-    const spaceOccupant = document.getElementById('pos6').textContent;
-    if (spaceOccupant !== 'position 6'){ //todo update content to empty string after styles
-        console.log('space occupied');
-        return; //do nothing
-    }
-    const mark = (isTurnX) ? 'X' : 'O';
-    document.getElementById('pos6').textContent=mark; //todo test
-    checkWinConditions();
-    toggleTurn();
-});
-
-document.getElementById('pos7').addEventListener('click', function(){
-    const spaceOccupant = document.getElementById('pos7').textContent;
-    if (spaceOccupant !== 'position 7'){ //todo update content to empty string after styles
-        console.log('space occupied');
-        return; //do nothing
-    }
-    const mark = (isTurnX) ? 'X' : 'O';
-    document.getElementById('pos7').textContent=mark; //todo test
-    checkWinConditions();
-    toggleTurn();
-});
-
-document.getElementById('pos8').addEventListener('click', function(){
-    const spaceOccupant = document.getElementById('pos8').textContent;
-    if (spaceOccupant !== 'position 8'){ //todo update content to empty string after styles
-        console.log('space occupied');
-        return; //do nothing
-    }
-    const mark = (isTurnX) ? 'X' : 'O';
-    document.getElementById('pos8').textContent=mark; //todo test
-    checkWinConditions();
-    toggleTurn();
-});
