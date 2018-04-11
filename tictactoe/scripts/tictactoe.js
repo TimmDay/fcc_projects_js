@@ -30,22 +30,31 @@ const tictactoe = {
         //isTurnX has toggled before this test
         if (a === b && b === c && c !== '' ) {
             return `win${this.isTurnX ? 'O' : 'X'}`;
+
         } else if (d === e && e === f && f !== '' ) {
             return `win${this.isTurnX ? 'O' : 'X'}`;
+
         } else if (g === h && h === i && i !== '' ) {
             return `win${this.isTurnX ? 'O' : 'X'}`;
+
         } else if (a === d && d === g && g !== '' ) {
             return `win${this.isTurnX ? 'O' : 'X'}`;
+
         } else if (b === e && e === h && h !== '' ) {
             return `win${this.isTurnX ? 'O' : 'X'}`;
+
         } else if (c === f && f === i && i !== '' ) {
             return `win${this.isTurnX ? 'O' : 'X'}`;
+
         } else if (a === e && e === i && i !== '' ) {
             return `win${this.isTurnX ? 'O' : 'X'}`;
+
         } else if (c === e && e === g && g !== '' ) {
             return `win${this.isTurnX ? 'O' : 'X'}`;
-        } else if (this.gameBoard.indexOf('') > 0) {
+
+        } else if (this.gameBoard.indexOf('') >= 0) {
             return ('incomplete');
+
         } else {
             return 'draw';
         }
@@ -95,22 +104,30 @@ const view = {
     },
 
     displayResult() {
-        switch (tictactoe.checkGameState()) {
-            case 'incomplete' :
-                break; //do nothing
+        console.log('test'); //todo
 
-            case 'draw' :
-                alert('game is a draw');
-                break;
+        const state = tictactoe.checkGameState();
 
-            case 'winX' :
-                alert('X wins!');
-                break;
-
-            case 'winO' :
-                alert('O wins!');
-                break;
+        console.log(state, '   : ok?')
+        if (state === 'incomplete'){
+            console.log('next move');
         }
+        // switch (tictactoe.checkGameState()) {
+        //     case 'incomplete' :
+        //         break; //do nothing
+        //
+        //     case 'draw' :
+        //         alert('game is a draw');
+        //         break;
+        //
+        //     case 'winX' :
+        //         alert('X wins!');
+        //         break;
+        //
+        //     case 'winO' :
+        //         alert('O wins!');
+        //         break;
+        // }
     },
 
 
