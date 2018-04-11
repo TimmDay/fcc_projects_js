@@ -1,6 +1,24 @@
 
-.board {
-    width: 400px;
+/*  _base  */
+html {
+    font-size: 62.5%; //makes the default rem 10px (0.625 * 16 = 10)
+}
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+    margin-top: 4.8rem;
+}
+button {
+    cursor: pointer;
+    outline: none;
+}
+button:disabled {
+    cursor: default;
+}
+
+/*  _components  */
+.container {
+    width: 40rem;
     margin: 0 auto;
 }
 .row {
@@ -10,18 +28,38 @@
     flex-wrap: wrap;
     -webkit-flex-flow: row;
     justify-content: center;
-    line-height:30px;
+
+    margin-bottom: .5rem;
+    /*line-height: 30px;*/
 }
+.row__text {
+    margin: 0 .5rem 0 .5rem;
+}
+
 .game-space {
-    margin-right: 5px;
-    margin-bottom: 5px;
+    margin-right: .5rem;
     font-weight: bold;
-    font-size: 1em;
     text-align: center;
     border-radius: 5px;
     box-shadow: 2px 2px #888888;
-    height: 40px;
-    width: 40px;
+    height: 10rem;
+    width: 10rem;
     background-color: blanchedalmond;
     /*border: 1px solid blue;*/
+
+    padding-top: 1rem;
+    color:red;
 }
+
+
+
+.btn {
+
+}
+.btn--reset {
+
+}
+.btn--reset:disabled {
+
+}
+
