@@ -5,14 +5,16 @@ const tictactoe = {
     isTurnX: true,
     winCounter: [0,0],
 
-    toggleTurn: function(){
-        this.isTurnX = !this.isTurnX;
-    },
+
 
     updateBoard: function(pos){
         if (this.gameBoard[pos] !== '') return; //do nothing if space occupied
         this.gameBoard[pos] = this.isTurnX ? 'X' : 'O';
         this.toggleTurn(); // todo here?
+    },
+
+    toggleTurn: function(){
+        this.isTurnX = !this.isTurnX;
     },
 
     checkGameState: function(){ // winX, winO, incomplete, draw
@@ -50,7 +52,7 @@ const tictactoe = {
             return 'draw';
         }
     },
-    
+
     clearBoard : () => {
         this.gameBoard = ['','','','','','','','',''];
     }
