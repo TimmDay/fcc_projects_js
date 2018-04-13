@@ -1,2 +1,2 @@
 # fcc_projects_js
-My take on the projects of the free code camp Front End Developer certificate
+My submissions for the Free Code Camp front end developer certificate. Please check them out at the following links:
