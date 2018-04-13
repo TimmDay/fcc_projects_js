@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles/js-calc.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- This tells mobile browers not to scale the page down by default, which allows the media queries to instead be applied -->
+        <title> bo bee deep | R2D2 javscript calculator </title>
+        <meta name="description"
+              content="">
+        <meta name="author"
+              content="Tim Day">
+        <!-- Fonts -->
+
+        <!-- OG tags for social -->
+        <meta property="og:site_name" content="R2D2 javascript calculator"/>
+        <meta property="og:title" content="R2D2 javascript calculator"/>
+        <meta property="og:description" content="R2D2 javascript calculator. Designed by Tim Day for Free Code Camp Front End Projects"/>
+        <meta property="og:image" content="http://timmday.com/projects/jsCalc/assets/r2d2-460.png">
+        <meta property="og:url" content="http://www.timmday.com/projects/jsCalc/calculator-index.html">
+        <meta property="og:type" content="website"/>
+    </head>
+    
+    <body>
+        <header>
+            <h3></h3>
+        </header>
+        
+        <div id="device">
+            
+            <div id="container-head">
+                
+                <div id="main-lens" class='detail'>
+                    <div id="lens-b"></div>
+                    <div id="lens-r"></div>
+                    <div id="lens"></div>
+                
+                </div>
+                <div id="strip-ll" class="detail"></div>
+                <div id="strip-l" class="detail">
+                    <div class="grey-square"></div>
+                    <div class="grey-square"></div>
+                </div>
+                <div id="blue-square" class="detail"></div>
+                <div id="entry" class="detail">
+                    <div id="entry-eye">         <!-- num container -->
+                        <p id="entry-eye-p"></p> <!--THIS IS WHERE THE NUM TEXT DISPLAYS-->
+                    </div>
+                </div>
+                <div id="history-out" class="detail">
+                    <div id="history-in" class="noFlash"></div>
+                </div>
+                <div id="strip-r" class="detail"></div>
+                <div id="strip-rr" class="detail"></div>
+                <div id="hbase" class="detail"></div>
+                
+            </div>
+
+            <div id="container-body">
+                
+                <div id="btop" class="detail">
+                    <div id="nine" class="numbers btn"><p class="num-symbol">9</p></div>
+                    <div id="eight" class="numbers btn"><p class="num-symbol">8</p></div>
+                    <div id="seven" class="numbers btn"><p class="num-symbol">7</p></div>
+                    <div id="divide" class="operators btn"><p class="op-symbol">÷</p></div>
+                </div>
+                <div id="bmid" class="detail">
+                    <div id="six" class="numbers btn"><p class="num-symbol">6</p></div>
+                    <div id="five" class="numbers btn"><p class="num-symbol">5</p></div>
+                    <div id="four" class="numbers btn"><p class="num-symbol">4</p></div>
+                    <div id="multiply" class="operators btn"><p class="op-symbol">×</p></div>
+                </div>
+                <div id="blow" class="detail">
+                    <div id="three" class="numbers btn"><p class="num-symbol">3</p></div>
+                    <div id="two" class="numbers btn"><p class="num-symbol">2</p></div>
+                    <div id="one" class="numbers btn"><p class="num-symbol">1</p></div>
+                    <div id="subtract" class="operators btn"><p class="minus-symbol">-</p></div>
+                </div>
+                
+                <div id="zero" class="detail2 btn">
+                    <div id="zero-symbol">0</div>
+                </div>
+                
+                <div id="vent-l-detail1">
+                    <div id="ee1" class="blue-bar"></div>
+                    <div id="ee2" class="blue-bar"></div>
+                    <div id="ee3" class="blue-bar"></div>
+                    <div id="ee4" class="blue-bar"></div>
+                    <div id="ee5" class="blue-bar"></div>
+                    <div id="ee6" class="blue-bar"></div>
+                </div>
+                
+                <div id="decimal" class="detail2 btn">
+                    <div id="decimal-symbol">.</div>
+                </div>
+                
+                <div id="vent-m" class="detail">
+                    <div id ="equals" class="btn"><p class="equals-symbol">=</p></div>
+                    <div id="ce" class="btn"><p id="ce-symbol">ce</p></div>
+                </div>
+                
+                
+                <div id="vent-r" class="detail2">
+                    <div id="plus" class="btn">
+                        <div id="plus-symbol">+</div>
+                    </div>
+                    <div id="ac" class="btn">
+                        <div id="ac-symbol">ac</div>
+                    </div>
+                </div>
+                
+                <div id="big-vent-l" class="detail2">
+                    <div class="detail2-inner"></div>
+                </div>
+                
+                <div id="big-vent-r" class="detail2">
+                    <div class="detail2-inner"></div>
+                </div>
+                    
+                <div id="grate">
+                    <div class="blue-stripe detail"></div>
+                    <div class=black-stripe></div>
+                    <div id="blue-stripe2" class="blue-stripe detail"></div>
+                    <div id="black-stripe2" class=black-stripe></div>
+                    <div id="blue-stripe3" class="blue-stripe detail"></div>
+                </div>
+                
+                <div id="hex-vent">
+                    <div id="hex-circle">
+                        <ul class="menu-social">
+                            <li id="git-hub"><a title="github" href="https://github.com/TimmDay" target="_blank">
+                                <img src="assets/social-icons-transparent/icon-github.png" alt="github"
+                                title="GitHub Tim Day"
+                                width="22"></a>
+                            </li>
+                            <li id="linked-in"><a title="Linked In" href="https://www.linkedin.com/in/timothympday" target="_blank">
+                                <img src="assets/social-icons-transparent/icon-linkedin.png" alt="Linked In"
+                                title="Linked In Tim Day"
+                                width="20"></a>
+                            </li>
+                            <li id="folio"><a title="Tim Day folio" href="http://www.timmday.com" target="_blank">
+                                <img src="assets/social-icons-transparent/icon-simpleBlog.png" alt="Tim Day folio site"
+                                title="Tim Day folio site"
+                                width="22"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="hexagon"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="scripts/jsoo-cals.js"></script>
+    </body>
+</html>
