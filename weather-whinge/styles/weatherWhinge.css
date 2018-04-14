@@ -1,0 +1,264 @@
+/* Weather Whinge */
+
+/* GLOBAL */
+
+* {
+    text-align: center;
+    margin: 0 auto;   
+}
+body {
+    background:;
+    margin: 0 0 0 0;
+    font-family: 'Raleway', Helvetica, sans-serif;
+}
+.clearfix {
+    clear: both;
+    margin: 0;
+}
+a { 
+    text-decoration: none;
+}
+.hidden {
+    display: none;
+}
+p {
+    margin: 18px;
+    margin-top: 12px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+h1 {
+    font-family: 'Ewert', cursive;
+    font-size: 40px;
+}
+
+/* JUMBO */
+
+.jumbo {
+    background: #00cc99;
+    padding-bottom: 30px;
+    margin-bottom: 10px;
+    padding-top: 30px;
+}
+.jumbo h3 {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 30px;
+    display: inline-block; /* so border doesn't stretch whole page */
+    border-top: 1px #000 dashed;
+    border-bottom: 1px #000 dashed;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* MAIN */
+
+.col50-left {
+    width: 30%;
+    margin-left: 20%;
+    margin-top: 30px;
+    float: left;
+}
+.col50-right {
+    width: 30%;
+    margin-right: 20%;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    float: left;
+}
+
+
+/* SUPPORT */
+
+.support {
+    background:;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 30vh;
+}
+.support h1 {
+    color: black;
+    padding: 5px 5px;
+}
+.support p {
+    margin-bottom: 5px;
+}
+#insult {
+    font-size: 56px;
+}
+
+
+/* FOOTER */
+footer {
+    padding-top: 40px;
+    background: green;
+    min-height: 15vh;
+    width: 100%;
+    padding-top: 10px;
+    margin-bottom: -5px;
+    height: 40px;
+    background: rgba(0,0,0,0.1);
+}
+footer p {
+    margin-top: 5px;
+    font-size: 12px;
+}
+footer ul li {
+    display: inline;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+
+
+/* WEATHER BOXES */
+
+.weather-app {
+    width: 310px;
+    height: 170px;
+    text-align: center;
+    margin: 0 auto;
+    border: 3px solid #00ff99;
+    border-radius: 20px;
+    box-shadow: 11px 11px 50px #000;
+    font-family: 'Raleway', Helvetica, sans-serif;
+    margin-top: 10px;
+    
+    overflow: hidden; /*keeps elements appearance within the borders of parent container - ie the border radius of weather-app won't be disturbed by pointy edges of the children, etc*/
+}
+.local-right-col {
+    background: #262626;
+    color: #00ff99;
+    width: 138px;
+    height: 100%;
+    padding: 10px;
+    float: right;
+} /* above: inversion of design for symmetry, only on local box */
+
+.left-col {
+    background: #262626;
+    color: #00ff99;
+    width: 138px;
+    height: 100%;
+    padding: 10px;
+    float: left;
+}
+.temperature {
+    font-size:50px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+.toggle-temp{
+    font-size: 38px;
+    text-transform: uppercase;
+    color: #66d9ff;
+    cursor: pointer;
+}
+.location {
+    font-size: 22px;
+}
+.top {
+    height: 90px;
+    background-color: #669999;
+}
+.top img {
+    margin-top: 10px;
+}
+.top div { /* condition description*/
+    margin-top: -14px;
+    font-size: 15px;
+    color: #00cc99;
+}
+.bottom {
+    background-color: #cec;
+    height: 100px;
+    font-weight: bold;
+}
+.humidity {
+    padding: 8px;
+}
+.humidity img {
+    position: relative;
+    top: 5px; /* lines the img up with the text next to it*/
+}
+.humidity span {
+    font-size: 25px;    
+}
+.wind{
+}
+#toggle-speed {
+    color: #0099cc;
+    cursor: pointer;
+}
+.base-strip {
+    height: 25px;
+    background-color: #669999;
+    margin-top: 15px;
+    width: 310px;
+    border-radius: 5px;
+    color: #00ff99;
+    padding-top: 5px;
+    box-shadow: 11px 11px 50px #000;
+    border: 1px solid #000;
+    font-size: 16px;
+}
+.sun-time {
+    font-style: italic;
+    font-size: 14px;
+    color: #000;
+}
+
+
+/* MEDIA QUERIES */
+
+/* cnn - 480,640,768,960,1024*/
+
+@media only screen and (max-width: 480px) {
+/* smartphone view - 1 tile*/
+    .col50-left {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .col50-right {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width : 640px) and (min-width : 481px) {
+/* tablet - */
+    .col50-left {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .col50-right {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width : 1050px) and (min-width : 651px) {
+/* Small Desktop & ipad - 3 tiles */
+    .col50-left {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .col50-right {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 30px;
+    }
+}
+
+
+/* small browser, laptop (this) */
+
+/* Large browser */

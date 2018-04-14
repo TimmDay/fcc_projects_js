@@ -1,0 +1,219 @@
+<!-- Weather Whinge -->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- 
+
+- calculate the difference in temperature local/extreme
+- display the difference in a big box
+- have a backup hot/cold place for if api fails
+- depending on the magnitude of difference, display an insult to the person who has been bitching about the weather
+- if the magnitude is close, give them justification to complain
+
+- show a picture of a pathetic and cute animal that they are equivalent to if they bitch about the weather
+
+- social. share and tweet buttons, that share the insult, magnitude, picture.
+
+- toggle whole page between C and F
+- convert obj.data for sunrise/sunset to usable time
+
+
+-->
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- This tells mobile browers not to scale the page down by default, which allows the media queries to instead be applied -->
+    
+    <title>Weather | Whinge</title>
+    <meta name="description"
+          content="A Weather App that calculates whether you are justified in complaining about the weather today">
+    <meta name="author"
+          content="Tim Day">
+    <link rel="stylesheet" href="styles/weatherWhinge.css">
+    
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400, 600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Ewert|Pinyon+Script" rel="stylesheet">
+</head>
+    
+<body>
+
+
+<!-- JUMBOTRON -->
+    
+    <div class='jumbo'>
+        <h1>Do not even</h1>
+        <h3>whinge about</h3>
+        <h1>the weather</h1>
+    </div>
+    
+    
+<!-- MAIN -->
+    
+    <div class="col50-left">
+            
+        <div class="weather-app">
+            
+            <div class="local-right-col"> <!-- orig left, swapped for symmetry -->
+                <div class="temperature">
+                    <span id="temperature">?</span>&deg;<span class="toggle-temp celcius">c</span>
+                </div>
+                <div class="location">
+                    <span id="location">city?</span>
+                </div>
+                <div class="country">
+                    <span id="country">country?</span>
+                </div>
+            </div>
+        
+            <div class="right-col">
+                <!--left on the local one-->
+            
+                <div class="top">
+                    <img id="icon" height="60px" src=""/>
+                    <div id="condition">
+                        bananas
+                    </div>
+                </div>
+            
+                <div class="bottom">
+
+                    <div class="humidity">
+                        <img src="assets/icondroplet.png" height="30px"/>
+                        <span id="humidity">?</span>%
+                    </div>
+                
+                    <div class="wind">
+                        <span id="windspeed">?</span> 
+                        <a id="toggle-speed" href="https://www.windfinder.com/wind/windspeed.htm" target="_blank">knots</a>
+                        <span id="direction"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="base-strip hidden">
+            sunrise: <span class="sun-time">time</span> | sunset: <span class="sun-time">time</span>
+        </div>
+        
+    </div>
+               
+    <!-- RIGHT WEATHER BOX -->
+    
+    <div class="col50-right">
+            
+        <div class="weather-app">
+            
+            <div class="left-col">
+                <div class="temperature">
+                    <span id="temperatureX">
+                        ?
+                    </span>&deg;<span class="toggle-temp celcius">c</span>
+                </div>
+                <div class="location">
+                    <span id="locationX">city?</span>
+                </div>
+                <div class="country">
+                    <span id="countryX">country?</span>
+                </div>
+            </div>
+        
+            <div class="right-col">
+            
+                    <div class="top">
+                        <img id="iconX" height="50px" src=""/>
+                        <div id="conditionX">
+                            extreme weather: field sensors offline
+                        </div>
+                    </div>
+            
+                    <div class="bottom">
+
+                    <div class="humidity">
+                        <img src="assets/icondroplet.png" height="30px"/>
+                        <span id="humidityX">?</span>%
+                    </div>
+                
+                    <div class="wind">
+                        <span id="windspeedX">?</span> 
+                        <a id="toggle-speed" href="https://www.windfinder.com/wind/windspeed.htm" target="_blank">knots</a>
+                        <span id="directionX"></span>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="clearfix"></div>
+        
+    
+<!-- SUPPORT -->
+    <div class="support">
+        
+        <p>Check out <span id="Xcity"></span>. Still moaning? Then you are a </p>
+        <h1 id="insult">dead set dingbat</h1>
+        <p> That's a <span id="Xdiff"></span> degree difference, tough guy. </p>
+        
+
+        <!-- FUTURE FEATURE -->
+        <!--<p>
+            This is a pictorial representation of your level of toughness.
+        </p>
+        <img src="" alt="this is you as your spirit animal" height="50"/>-->
+        
+    </div>
+    
+    
+<!-- FOOTER -->
+    <footer>
+        <ul class="menu-social">
+            <li>
+                A Tim Day web dev project 
+            </li>
+            <li>
+                |
+            </li>
+            <li>
+                <a href="www.timmday.com">timmday.com
+                </a>
+            </li>
+            <li>
+                <a title="github" href="https://github.com/TimmDay" target="_blank">
+                    <img src="/assets/social-icons-transparent/icon-github.png" alt="github"
+                    title="GitHub Tim Day"
+                    width="18">
+                </a>
+            </li>
+
+            <li>
+                <a title="Linked In" href="https://www.linkedin.com/in/timothympday" target="_blank">
+                    <img src="/assets/social-icons-transparent/icon-linkedin.png" alt="Linked In"
+                    title="Linked In Tim Day"
+                    width="18">
+                </a>
+            </li>
+
+            <li>
+                <a title="twitter" href="https://twitter.com/FishPlantFish" target="_blank">
+                    <img src="/assets/social-icons-transparent/icon-twitter.png" alt="Twitter"
+                    title="Twitter Tim Day"
+                    width="18"/>
+                </a>
+            </li>
+
+        </ul>
+        
+        <p> Thank you to Open Weather API and Free Code Camp</p>
+        <p>Tim Day is a web developer and sustainability enthusiast. Say g'day at <a href="timmday.com">timmday.com</a></p>
+
+    </footer>
+
+<script src="assets/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="scripts/weatherWhinge.js"></script>
+</body>
+
+
+    
+</html>
