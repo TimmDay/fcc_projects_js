@@ -1,0 +1,177 @@
+<!--
+mr bond, due to MI6 field department budget revisions, your information agents will now be accessed through this portal. You know how it is old chap.
+
+bond: "do you expect me to find accurate information regarding my mission from... the internet?" - James Bond
+"No Mr Bond, I expect you to die" - the Internet
+
+show top 6 results, quote underneath
+
+icon is a crosshair
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/wiki.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- This tells mobile browers not to scale the page down by default, which allows the media queries to instead be applied -->
+    
+    <title> MI6 | Field Intelligence </title>
+    <meta name="description"
+          content="Mission Briefings from MI6 for dangerous mission preparation. Powered by wikipedia. Designed by Tim Day for Free Code Camp Front End Projects">
+    <meta name="author"
+          content="Tim Day">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    
+    <!-- OG tags for social -->
+    <meta property="og:site_name" content="MI6 Intel Search"/>
+    <meta property="og:title" content="MI6 | Field Intelligence"/>
+    <meta property="og:description" content="Mission Briefings from MI6 for dangerous mission preparation. Powered by wikipedia. Designed by Tim Day for Free Code Camp Front End Projects"/>
+    <meta property="og:image" content="http://timmday.com/projects/wikiViewer/assets/wikiViewer.png">
+    <meta property="og:url" content="http://timmday.com/projects/wikiViewer/wiki-index.html">
+    <meta property="og:type" content="website"/>
+</head>
+
+<body>
+    <div class='container'>
+    
+    <!-- DOSSIER TABS  -->
+    <div id='dossier-tab'>
+        <p>
+            <a href='https://en.wikipedia.org/wiki/Special:Random' target='_blank'>RANDOM</a>
+        </p>
+    </div>
+    
+    <div id='dossier-tab2'>
+        <div class="menu-social">
+            <ul>
+            <li>
+                <a title="github" href="https://github.com/TimmDay" target="_blank">
+                    <img src="./assets/social-icons-transparent/icon-github.png" alt="github"
+                    title="GitHub Tim Day"
+                    width="15">
+                </a>
+            </li>
+
+            <li>
+                <a title="Linked In" href="https://www.linkedin.com/in/timothympday" target="_blank">
+                    <img src="./assets/social-icons-transparent/icon-linkedin.png" alt="Linked In"
+                    title="Linked In Tim Day"
+                    width="15">
+                </a>
+            </li>
+            <li>
+                <a title="twitter" href="https://twitter.com/FishPlantFish" target="_blank">
+                    <img src="./assets/social-icons-transparent/icon-twitter.png" alt="Twitter"
+                    title="Twitter Tim Day"
+                    width="15"/>
+                </a>
+            </li>
+            <li>
+                <a title="medium" href="https://medium.com/@FishPlantFish" target="_blank">
+                    <img src="./assets/social-icons-transparent/icon-medium.png" alt="Medium"
+                    title="Medium Tim Day"
+                    width="15"/>
+                </a>
+            </li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    <!-- MAIN CONTENT -->
+    
+    <header>
+        <h1>OHMSS</h1>
+        <h5>FCC Front End Projects</h5>
+        <div id="photo">
+            <div id="photo-inner"></div>
+        </div>
+        <img id="paperclip" src="assets/paperclip_transparent.png"/>
+    </header>
+    
+    <div></div>
+    
+    <div id="search-bar">
+        <input id="input" type="text" autocomplete="off"/>
+        <div id ='line-top' class='line'></div>
+        <div id ='line-right' class='line'></div>
+        <div id ='line-base' class='line'></div>
+        <div id ='line-left' class='line'></div>
+        <p id="instruction">click icon to search</p>
+    </div>
+    
+    <div id='classified'>
+        <p> classified</p>
+    </div>
+    
+    <div id='mission-notes'>
+        <p>Mr Bond, due to MI6 field department budget revisions, your intelligence briefings will now be accessed through this portal. You know how it is, old chap.</p>
+    </div>
+    
+    <div id='bond-question'>
+        <p>"To be clear, you expect me to find accurate information regarding my mission from... the internet?"</p>
+        <p>- Bond</p>
+    </div>
+    
+    <div id='question-reply'>
+        <p>"No Mr Bond, I expect you to die"</p>
+        <p>- the Internet</p>
+    </div>
+    
+    <div id='search-results'>
+        <div class="dispResult">
+            <a id="result0" href="#" target='_blank'></a>
+            <p id="snippet0"></p>
+        </div>
+        <div class="dispResult">
+            <a id="result1" href="#" target='_blank'></a>
+            <p id="snippet1"></p>
+        </div>
+        <div class="dispResult">
+            <a id="result2" href="#" target='_blank'></a>
+            <p id="snippet2"></p>
+        </div>
+        <div class="dispResult">
+            <a id="result3" href="#" target='_blank'></a>
+            <p id="snippet3"></p>
+        </div>
+        <div class="dispResult">
+            <a id="result4" href="#" target='_blank'></a>
+            <p id="snippet4"></p>
+        </div>
+        <div class="dispResult">
+            <a id="result5" href="#" target='_blank'></a>
+            <p id="snippet5"></p>
+        </div>
+        <div class="dispResult">
+            <a id="result6" href="#" target='_blank'></a>
+            <p id="snippet6"></p>
+        </div>
+        <p id="subscript">number of results: 007</p>
+        
+    </div>
+    
+    
+    <footer>
+        <p>
+            Free Code Camp Front End Projects 2017
+        </p>
+        <p><a href="http://www.timmday.com">www.timmday.com</a></p>
+        <a title="Tim Day Website" href="http://www.timmday.com" target="_blank">
+            <img src="assets/social-icons-transparent/icon-simpleBlog.png" alt="Tim Day Folio"
+            title="Folio Tim Day" width="15">
+        </a>
+    </footer>
+    
+    </div>
+    
+    
+
+    <script src="assets/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="scripts/wiki.js"></script>
+</body>
+
+

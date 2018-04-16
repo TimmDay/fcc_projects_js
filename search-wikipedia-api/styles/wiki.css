@@ -1,0 +1,352 @@
+/*   GLOBAL   */
+* {
+    text-align: center;
+    font-family: 'Inconsolata', monospace, sans-serif;
+    color: #000;
+    margin: 0 auto;
+    text-decoration: none;
+}
+html {
+    margin: 0;
+    height: 100%;
+    background-color: #4a4c37;
+    padding: 40px 60px 40px 40px;
+}
+body {
+    margin: 0;
+    height: 110%;
+    background: #cbc39e;
+    border-radius: 5px;
+}
+
+
+.container {
+    background-color: #cbc39e;
+    /* so the background color will cover overflow search return content */
+}
+
+header {
+    padding-left: 20%;
+}
+header h1 {
+    padding-top: 20px;
+    text-align: left;
+}
+header h5 {
+    text-align: left;
+    margin-bottom: 10px;
+}
+#paperclip {
+    height: 100px;
+    z-index: 10;
+    position: absolute;
+    top: 20.75px;
+    right: 33px;
+    transform: rotate(-35deg);
+    transform: -webkit-rotate(-45deg);
+    transform: -moz-rotate(-45deg);
+}
+#photo {
+    position: absolute;
+    right: 70px;
+    top: 30px;
+    width: 140px;
+    height: 145px;
+    background-color: white;
+    z-index: 2;
+    box-shadow: -2px 2px 8px #777;
+    transform: rotate(4deg);
+    transform: -webkit-rotate(4deg);
+    transform: -moz-rotate(4deg);
+    border-radius: 5px;
+    visibility: hidden;
+}
+#photo-inner {
+    position: fixed;
+    right: 9px;
+    top: 5px;
+    width: 120px;
+    height: 120px;
+    background-color: aqua;
+    z-index: 3;
+    border: 1px solid black;
+    background: url("#");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/*   SEARCH BAR - THE CROSSHAIR   */
+
+#search-bar {
+    margin-top: 15%; /* % of what? */
+}
+#input {
+    position: relative;
+    background-color: #cbc39e;
+    color: #000000;
+    font-size: 18px;
+    padding: 2px 2px 2px 2px;
+    width: 30px;
+    outline: none;
+    height: 30px;
+    border-radius: 30px;
+    border: 5px solid #D90F0F;
+    -webkit-transition: width 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
+    cursor: pointer;
+}
+#input:focus {
+    width: 190px;
+    padding: 2px 30px 2px 20px;
+}
+#line-right {
+    width: 21px;
+    border: 4px solid #D90F0F;
+    border-radius: 10px;
+    position: relative;
+    left: 19px;
+    bottom: 54px;
+    pointer-events: none;
+}
+#line-left {
+    width: 21px;
+    border: 4px solid #D90F0F;
+    border-radius: 10px;
+    position: relative;
+    right: 18px;
+    bottom: 91px;
+    pointer-events: none;
+}
+#line-top {
+    width: 0;
+    height: 21px;
+    border: 4px solid #D90F0F;
+    border-radius: 10px;
+    position: relative;
+    right: -0.5px;
+    bottom: 52px;
+    pointer-events: none;
+}
+#line-base {
+    width: 0;
+    height: 21px;
+    border: 4px solid #D90F0F;
+    border-radius: 10px;
+    position: relative;
+    right: -0.5px;
+    bottom: 56px;
+    pointer-events: none;
+}
+#instruction {
+    margin-bottom: 2px;
+    margin-top: -55px;
+    color: #000000;
+    font-size: 18px;
+}
+
+
+/* DOSSIER TABS */
+
+#dossier-tab {
+    height: 125px;
+    width: 28px;
+    background-color: #9b9670;
+    position: fixed;
+    right: 32px;
+    top: 65px;
+    border-radius: 0px 23px 23px 0px;
+}
+#dossier-tab p {
+    transform: rotate(90deg);
+    transform: -webkit-rotate(90deg);
+    transform: -moz-rotate(90deg);
+    font-size: 18px;
+    margin-top: 43px;
+    margin-left: -4px;
+}
+#dossier-tab a {
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0.3;
+}
+#dossier-tab2 {
+    height: 125px;
+    width: 28px;
+    background-color: #9b9670;
+    position: fixed;
+    right: 32px;
+    top: 195px;
+    border-radius: 0px 23px 23px 0px;
+}
+#dossier-tab2 a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* SOCIAL BUTTONS */
+
+ul li {
+    display: inline;
+    opacity: 0.3;
+}
+.menu-social {
+    position: fixed;
+    top: 230px;
+    right: -14px;
+    transform: rotate(90deg);
+    transform: -webkit-rotate(90deg);
+    transform: -moz-rotate(90deg); 
+}
+
+
+/*  CLASSIFIED TEXT  */
+
+#classified {
+    position: absolute;
+    width: 85%;
+    padding-top: 80px;
+    transform: rotate(30deg);
+    transform: -webkit-rotate(30deg);
+    transform: -moz-rotate(30deg);
+    font-size: 100px;
+    text-transform: uppercase;
+    opacity: 0.1;
+    margin-left: 5%;
+    overflow: hidden;
+}
+#classified p {
+    background: -webkit-linear-gradient(#006, #D90F0F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 4px rgba(150,0,0,0.4);
+    font-weight: bold;
+}
+
+
+/* DIALOGUE */
+
+#mission-notes {
+    width: 300px;
+    margin-top: 60px;
+}
+#bond-question {
+    visibility: hidden;
+    width: 300px;
+    margin-top: -140px;
+}
+#question-reply {
+    visibility: hidden;
+    width: 300px;
+    margin-top: -120px;
+    margin-bottom: 30px;
+}
+
+
+/* SEARCH RESULTS */
+
+#search-results {
+    visibility: hidden;
+}
+#search-results p {
+    padding-top: 2px;
+}
+.dispResult {
+    margin-bottom: 18px;
+    max-width: 350px;
+}
+.dispResult a {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#subscript {
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin-top: 40px;
+}
+
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+    padding-bottom: 30px;
+    font-size: 10px;
+    opacity: 0.4;
+}
+footer p {
+    margin-bottom: 5px;
+}
+
+
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 480px) {
+/* smartphone view - 1 tile*/
+    #photo {
+        display: none;
+    }
+}
+@media only screen and (max-width : 1050px) and (min-width : 651px) {
+/* Small Desktop & ipad */
+    html {
+        padding: 40px 160px 40px 130px;
+    }
+    #dossier-tab {
+        right: 132px;
+    }
+    #dossier-tab2 {
+        right: 132px;
+    }
+    .menu-social {
+        right: 86px; 
+    }
+    #classified {
+        width: 60%;
+        margin-left: 3%;
+        font-size: 120px;
+    }
+    #photo {
+        right: 180px;
+    }
+    #paperclip {
+        right: 140px;
+    }
+}
+
+@media only screen and (min-width : 1051px) {
+    /* Medium Desktop and up */
+    html {
+        padding: 40px 310px 40px 280px;
+    }
+    #dossier-tab {
+        right: 282px;
+    }
+    #dossier-tab2 {
+        right: 282px;
+    }
+    .menu-social {
+        right: 237px; 
+    }
+    #classified {
+        width: 55%;
+        margin-left: 2%;
+        font-size: 140px;
+    }
+    #photo {
+        right: 353px;
+    }
+    #paperclip {
+        right: 320px;
+    }
+}
+
+
