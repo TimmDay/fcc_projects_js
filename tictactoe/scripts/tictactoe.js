@@ -1,21 +1,12 @@
-
 /** MODEL cares about the data **/
 const tictactoe = {
     gameBoard: ['','','','','','','','',''],
     isTurnX: true,
-    winCounter: [0,0],
+    winCounter: [0,0,0],
 
-<<<<<<< HEAD
-
-||||||| merged common ancestors
-    toggleTurn: function(){
-        this.isTurnX = !this.isTurnX;
-    },
-=======
     toggleTurn(){
         this.isTurnX = !this.isTurnX;
     },
->>>>>>> 6587578c4c5ab3ce7778df5a58de29f148a9efed
 
     updateBoard(pos){
         if (this.gameBoard[pos] !== '') return; //do nothing if space occupied
@@ -23,17 +14,7 @@ const tictactoe = {
         this.toggleTurn(); // todo here?
     },
 
-<<<<<<< HEAD
-    toggleTurn: function(){
-        this.isTurnX = !this.isTurnX;
-    },
-
-    checkGameState: function(){ // winX, winO, incomplete, draw
-||||||| merged common ancestors
-    checkGameState: function(){ // winX, winO, incomplete, draw
-=======
     checkGameState(){ // winX, winO, incomplete, draw
->>>>>>> 6587578c4c5ab3ce7778df5a58de29f148a9efed
 
         const a = this.gameBoard[0];
         const b = this.gameBoard[1];
@@ -68,22 +49,14 @@ const tictactoe = {
             return 'draw';
         }
     },
-<<<<<<< HEAD
-
-    clearBoard : () => {
-||||||| merged common ancestors
-    
-    clearBoard : () => {
-=======
     
     resetBoard()  {
->>>>>>> 6587578c4c5ab3ce7778df5a58de29f148a9efed
         this.gameBoard = ['','','','','','','','',''];
         this.isTurnX = true;
         // return true; //todo for promises
     },
 
-    incrementCounter(){
+    incrementCounter(result){
         // 0=o, 1=x
         // isTurnX was toggled at win point, so toggle it back
         if (!this.isTurnX) { //x won
@@ -177,7 +150,7 @@ const view = {
         document.getElementById('count-o').textContent = o;
     },
 
-    toggleResetButtonDisabled() {
+    toggleEnabledResetBtn() {
         //todo bug. disabled never goes away in dom
         const resetBtn = document.getElementsByClassName('btn--reset')[0];
         const stateDisabled = resetBtn.getAttribute('disabled');
@@ -186,19 +159,16 @@ const view = {
         console.log(resetBtn.getAttribute('disabled')); //todo
     },
 
+    toggleEnabledPlayAsBtns(){
 
-    newGame() {
+    },
 
-    }, //user clicks new game button
-    chooseTeam() {
-
-    } //user clicks choose team toggle before new game starts
 };
 
 /** set up listeners **/
 controller.handleTurnTaking();
 controller.handlePlayAgainButton();
-// view.toggleResetButton();
+// view.toggleEnabledResetBtn();
 
 
 // DEMO TESTS
@@ -253,7 +223,3 @@ const test2 = () => {
 };
 
 // test1();
-
-
-
-
