@@ -34,6 +34,8 @@ button:disabled {
 }
 .row__text {
     margin: 0 .5rem 0 .5rem;
+    width: 20rem;
+    text-align: center;
 }
 
 .game-space {
