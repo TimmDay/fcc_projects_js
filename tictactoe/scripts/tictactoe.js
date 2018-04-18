@@ -3,6 +3,7 @@ const tictactoe = {
     gameBoard: ['','','','','','','','',''],
     isTurnX: true,
     winCounter: [0,0,0],
+    userPlaysAs: 'x',
 
     toggleTurn(){
         this.isTurnX = !this.isTurnX;
@@ -66,6 +67,52 @@ const tictactoe = {
         }
     }
 };
+
+const ai = {
+    aiPlaysAs: 'o',
+
+    findBestMove(gameBoard) {
+        let bestMove = null;
+        gameBoard.forEach((currSpace) => {
+            // make the move
+            const newBoard = gameBoard; //copy of gameboard with small update
+            // if a move in this space is better than bestMove, bestMove = currentMove
+            minimax
+        });
+        return bestMove;
+    },
+
+    minimax(gameBoard, depth, isMaxPlayer) {
+        const gameState = tictactoe.checkGameState();
+        if (gameState === 'draw' || gameState.slice(0,3) === 'win') {
+            return gameBoard;
+        }
+
+        if (isMaxPlayer) {
+          let bestVal = -Infinity;
+          gameBoard.forEach((gameSpace) => {
+              // make a faux move, update gameboard
+              let val = minimax(gameBoard, depth + 1, false);
+              bestVal = Math.max(bestVal, val);
+          })
+
+        } else {
+            let bestVal = +Infinity;
+            gameBoard.forEach((gameSpace) => {
+                // make a faux move, update gameboard
+                let val = minimax(gameBoard, depth + 1, true);
+                bestVal = Math.min(bestVal, val);
+            })
+        }
+    },
+
+    isMoveRemain(gameBoard) {
+        gameBoard.forEach((space)=> {
+            if (space === '') return true;
+        })
+    },
+};
+
 
 
 /** CONTROLLER (event listeners - link between model and view) **/
